@@ -12,6 +12,7 @@
 		5614337C1F36C3DE00FE90EF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5614337A1F36C3DE00FE90EF /* Main.storyboard */; };
 		5614337E1F36C3DE00FE90EF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5614337D1F36C3DE00FE90EF /* Assets.xcassets */; };
 		561433811F36C3DF00FE90EF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5614337F1F36C3DF00FE90EF /* LaunchScreen.storyboard */; };
+		561433891F3768A500FE90EF /* popUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 561433881F3768A500FE90EF /* popUpView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5614337D1F36C3DE00FE90EF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		561433801F36C3DF00FE90EF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		561433821F36C3DF00FE90EF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		561433881F3768A500FE90EF /* popUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = popUpView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 			children = (
 				561433761F36C3DE00FE90EF /* AppDelegate.swift */,
 				561433781F36C3DE00FE90EF /* ViewController.swift */,
+				561433881F3768A500FE90EF /* popUpView.swift */,
 				5614337A1F36C3DE00FE90EF /* Main.storyboard */,
 				5614337D1F36C3DE00FE90EF /* Assets.xcassets */,
 				5614337F1F36C3DF00FE90EF /* LaunchScreen.storyboard */,
@@ -136,6 +139,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				561433791F36C3DE00FE90EF /* ViewController.swift in Sources */,
+				561433891F3768A500FE90EF /* popUpView.swift in Sources */,
 				561433771F36C3DE00FE90EF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -275,6 +279,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G9JF9YBU33;
 				INFOPLIST_FILE = Rainbow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WILD.Rainbow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -289,6 +294,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = G9JF9YBU33;
 				INFOPLIST_FILE = Rainbow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = WILD.Rainbow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -316,6 +322,7 @@
 				561433871F36C3DF00FE90EF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

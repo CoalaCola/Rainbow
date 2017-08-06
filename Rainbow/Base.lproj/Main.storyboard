@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13137.5"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -36,7 +37,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IRW-PK-SeE">
-                                <rect key="frame" x="245" y="246" width="130" height="174"/>
+                                <rect key="frame" x="186" y="246" width="130" height="174"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LT2-v4-w4d">
@@ -88,6 +89,22 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RXM-3V-1e0">
+                                <rect key="frame" x="269" y="579" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" title="重玩"/>
+                                <connections>
+                                    <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jda-9N-ASk"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="記住這個顏色" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jso-9n-ack">
+                                <rect key="frame" x="118" y="184" width="139" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -97,8 +114,11 @@
                         <outlet property="blueSlide" destination="nMi-Jd-DbF" id="hH0-Zq-sKf"/>
                         <outlet property="colorAdjustView" destination="IRW-PK-SeE" id="sgT-75-ODY"/>
                         <outlet property="greenSlide" destination="LT2-v4-w4d" id="9X6-OH-WLp"/>
+                        <outlet property="instructionLabel" destination="i8v-75-068" id="CSV-k1-UUF"/>
                         <outlet property="nextColor" destination="bFd-63-Dgi" id="mVB-dF-gpP"/>
                         <outlet property="redSlide" destination="Ryg-0l-a4A" id="exz-Ex-azX"/>
+                        <outlet property="rememberThisColor" destination="Jso-9n-ack" id="3VA-uX-TAx"/>
+                        <outlet property="resetGame" destination="RXM-3V-1e0" id="BZg-3L-IwN"/>
                         <outlet property="showScore" destination="CED-mu-Tn1" id="bCS-l8-C5s"/>
                         <outlet property="startGame" destination="tCC-6F-YTT" id="lIS-zT-QI7"/>
                     </connections>
@@ -107,5 +127,66 @@
             </objects>
             <point key="canvasLocation" x="37.600000000000001" y="38.23088455772114"/>
         </scene>
+        <!--Pop Up View-->
+        <scene sceneID="act-gh-y5E">
+            <objects>
+                <viewController storyboardIdentifier="popUpView" id="gyl-WW-vmR" customClass="popUpView" customModule="Rainbow" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="YES" id="sYy-r6-zv9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" insetsLayoutMarginsFromSafeArea="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S3i-Ux-XZL">
+                                <rect key="frame" x="67" y="112" width="240" height="338"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2qa-Ce-b03">
+                                        <rect key="frame" x="71" y="277" width="99" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <state key="normal" title="重玩"/>
+                                        <connections>
+                                            <action selector="closePopUpResetGame:" destination="gyl-WW-vmR" eventType="touchUpInside" id="ZKp-Og-CZl"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="你的分數：0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iT6-yM-yT7">
+                                        <rect key="frame" x="58" y="221" width="125" height="48"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="謝謝你畫出美麗的彩虹" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OfA-ys-rlk">
+                                        <rect key="frame" x="13" y="0.0" width="215" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="rainbow" translatesAutoresizingMaskIntoConstraints="NO" id="k16-0T-EkN">
+                                        <rect key="frame" x="6" y="66" width="228" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="woq-2t-xjo"/>
+                    </view>
+                    <connections>
+                        <outlet property="closePopUpResetGame" destination="2qa-Ce-b03" id="qWn-Yh-46X"/>
+                        <outlet property="popUpScore" destination="iT6-yM-yT7" id="Eb4-Bn-q8d"/>
+                        <outlet property="popUpView" destination="S3i-Ux-XZL" id="VbQ-YH-cut"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BWH-jn-Z5V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="752.79999999999995" y="27.436281859070466"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="rainbow" width="900" height="480"/>
+    </resources>
 </document>
