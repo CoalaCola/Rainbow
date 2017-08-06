@@ -7,12 +7,73 @@
 //
 
 import UIKit
+import GameplayKit
 
 class ViewController: UIViewController {
-
+    
+    let rainbowColor = [ UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, #colorLiteral(red: 0.3713564873, green: 0.1111276522, blue: 0.582187891, alpha: 1), #colorLiteral(red: 0.5803921569, green: 0, blue: 0.8274509804, alpha: 1)]
+    let randomDistribution = GKRandomDistribution(lowestValue: 0, highestValue: 6)
+    
+    var rainbowNumber = 0
+    
+    
+    @IBOutlet weak var colorAdjustView: UIView!
+    @IBOutlet weak var redSlide: UISlider!
+    
+    @IBOutlet weak var greenSlide: UISlider!
+    @IBOutlet weak var blueSlide: UISlider!
+    @IBAction func colorAdjust(_ sender: UISlider) {
+        view.backgroundColor = UIColor(red: CGFloat(redSlide.value) , green: CGFloat(greenSlide.value), blue: CGFloat(blueSlide.value), alpha: 1)
+        
+    }
+    
+    @IBOutlet weak var startGame: UIButton!
+    @IBAction func startGame(_ sender: Any) {
+        view.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        nextColor.isHidden = false
+        startGame.isHidden = true
+        colorAdjustView.isHidden = false
+        redSlide.isHidden = false
+        greenSlide.isHidden = false
+        blueSlide.isHidden = false
+    }
+    
+    var colorAnswer:UIColor?
+    var score = 0
+    @IBOutlet weak var nextColor: UIButton!
+    @IBAction func nextColor(_ sender: Any) {
+        
+        colorAnswer = view.backgroundColor
+        if rainbowNumber > 0, colorAnswer == rainbowColor[(rainbowNumber - 1) % 7] {
+            score += 1
+        }
+        view.backgroundColor = rainbowColor[rainbowNumber % 7]
+        rainbowNumber += 1
+        nextColor.isHidden = true
+        startGame.isHidden = false
+        colorAdjustView.isHidden = true
+        redSlide.isHidden = true
+        greenSlide.isHidden = true
+        blueSlide.isHidden = true
+        print(score)
+        showScore.text = "你的分數：\(score)"
+    }
+    @IBOutlet weak var showScore: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        let number = randomDistribution.nextInt()
+        view.backgroundColor = rainbowColor[number]
+        startGame.isHidden = true
+        colorAdjustView.isHidden = true
+        nextColor.layer.cornerRadius = 10
+        nextColor.layer.borderWidth = 1
+        startGame.layer.cornerRadius = 10
+        startGame.layer.borderWidth = 1
+        showScore.layer.cornerRadius = 10
+        showScore.layer.borderWidth = 1
+        colorAdjustView.layer.cornerRadius = 20
+        
     }
 
     override func didReceiveMemoryWarning() {
