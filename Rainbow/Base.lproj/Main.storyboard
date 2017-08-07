@@ -105,6 +105,21 @@
                                     <action selector="resetGame:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Jda-9N-ASk"/>
                                 </connections>
                             </button>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="3" minimumValue="3" maximumValue="5" translatesAutoresizingMaskIntoConstraints="NO" id="xmi-Z6-ca5">
+                                <rect key="frame" x="30" y="618" width="94" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <action selector="difficultyStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="8JN-w6-ObL"/>
+                                </connections>
+                            </stepper>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="難度：3" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5AI-WS-i0h">
+                                <rect key="frame" x="30" y="594" width="94" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <gestureRecognizers/>
@@ -119,6 +134,7 @@
                         <outlet property="redSlide" destination="Ryg-0l-a4A" id="exz-Ex-azX"/>
                         <outlet property="rememberThisColor" destination="Jso-9n-ack" id="3VA-uX-TAx"/>
                         <outlet property="resetGame" destination="RXM-3V-1e0" id="BZg-3L-IwN"/>
+                        <outlet property="showDifficulty" destination="5AI-WS-i0h" id="e4M-RU-4kT"/>
                         <outlet property="showScore" destination="CED-mu-Tn1" id="bCS-l8-C5s"/>
                         <outlet property="startGame" destination="tCC-6F-YTT" id="lIS-zT-QI7"/>
                     </connections>

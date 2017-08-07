@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     
     var randomColorArray = Array<UIColor>()
     
+    var difficulty = 3
+    static var rainbowNumber = 0
     var rainbowColor = [
         UIColor.red,
         UIColor(red: CGFloat(1.0), green: CGFloat(0.6), blue: CGFloat(0.0), alpha: 1),
@@ -22,10 +24,15 @@ class ViewController: UIViewController {
         UIColor(red: CGFloat(0.4), green: CGFloat(0.2), blue: CGFloat(0.6), alpha: 1),
         UIColor(red: CGFloat(0.6), green: CGFloat(0.0), blue: CGFloat(0.8), alpha: 1)]
     let randomDistribution = GKRandomDistribution(lowestValue: 0, highestValue: 6)
-    let randomColorDistri = GKRandomDistribution(lowestValue: 0, highestValue: 5)
+    let randomColorDistri = GKRandomDistribution(lowestValue: 0, highestValue: 3)
     
     
-    static var rainbowNumber = 0
+    @IBAction func difficultyStepper(_ sender: UIStepper) {
+        difficulty = Int(sender.value)
+        showDifficulty.text = "難度：\(difficulty)"
+    }
+    
+    @IBOutlet weak var showDifficulty: UILabel!
     
     @IBOutlet weak var instructionLabel: UILabel!
     @IBOutlet weak var rememberThisColor: UILabel!
@@ -56,14 +63,15 @@ class ViewController: UIViewController {
        
         
         view.backgroundColor = UIColor(
-            red: CGFloat(Int(redSlide.value * 5 )) / 5,
-            green: CGFloat(Int(greenSlide.value * 5 )) / 5,
-            blue: CGFloat(Int(blueSlide.value * 5 )) / 5,
+            red: CGFloat(Int(redSlide.value * Float(difficulty))) / CGFloat(difficulty),
+            green: CGFloat(Int(greenSlide.value * Float(difficulty))) / CGFloat(difficulty),
+            blue: CGFloat(Int(blueSlide.value * Float(difficulty))) / CGFloat(difficulty),
             alpha: 1)
         
-        print(CGFloat(Int(redSlide.value * 5 )) / 5)
-        print(CGFloat(Int(greenSlide.value * 5 )) / 5)
-        print(CGFloat(Int(blueSlide.value * 5 )) / 5)
+        print(CGFloat(Int(redSlide.value * Float(difficulty))) / CGFloat(difficulty))
+       
+        print(CGFloat(Int(greenSlide.value * Float(difficulty))) / CGFloat(difficulty))
+        print(CGFloat(Int(blueSlide.value * Float(difficulty))) / CGFloat(difficulty))
         print(randomColorArray[(ViewController.rainbowNumber - 1) % 7])
     }
     
@@ -151,22 +159,19 @@ class ViewController: UIViewController {
     }
 
     func creatNewRandomColorGame() {
-        
-        randomColorArray = []
+       randomColorArray = []
         for _ in 1...7{
-            
-            randomColorArray.append(UIColor(
-                red: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
-                green: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
-                blue: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
+             randomColorArray.append(UIColor(
+                red: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
+                green: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
+                blue: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
                 alpha: 1))
-            
         }
             
    ///     randomColorArray =  Array<UIColor>(repeating: UIColor(
-   ///         red: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
-   ///         green: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
-   ///         blue: CGFloat( Double(randomColorDistri.nextInt())  * 0.2),
+   ///         red: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
+   ///         green: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
+   ///         blue: CGFloat( Double(randomColorDistri.nextInt())  / Double(difficulty)),
    ///       alpha: 1), count: 7)
     
     
