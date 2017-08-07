@@ -11,7 +11,14 @@ import GameplayKit
 
 class ViewController: UIViewController {
     
-    let rainbowColor = [ UIColor.red, UIColor.orange, UIColor.yellow, UIColor.green, UIColor.blue, #colorLiteral(red: 0.3713564873, green: 0.1111276522, blue: 0.582187891, alpha: 1), #colorLiteral(red: 0.5803921569, green: 0, blue: 0.8274509804, alpha: 1)]
+    let rainbowColor = [
+        UIColor.red,
+        UIColor(red: CGFloat(1.0), green: CGFloat(0.6), blue: CGFloat(0.0), alpha: 1),
+        UIColor.yellow,
+        UIColor.green,
+        UIColor.blue,
+        UIColor(red: CGFloat(0.4), green: CGFloat(0.2), blue: CGFloat(0.6), alpha: 1),
+        UIColor(red: CGFloat(0.6), green: CGFloat(0.0), blue: CGFloat(0.8), alpha: 1)]
     let randomDistribution = GKRandomDistribution(lowestValue: 0, highestValue: 6)
     
     static var rainbowNumber = 0
@@ -33,13 +40,24 @@ class ViewController: UIViewController {
 }
   
     @IBOutlet weak var colorAdjustView: UIView!
-    @IBOutlet weak var redSlide: UISlider!
     
+    @IBOutlet weak var redSlide: UISlider!
     @IBOutlet weak var greenSlide: UISlider!
     @IBOutlet weak var blueSlide: UISlider!
+    
     @IBAction func colorAdjust(_ sender: UISlider) {
-        view.backgroundColor = UIColor(red: CGFloat(redSlide.value) , green: CGFloat(greenSlide.value), blue: CGFloat(blueSlide.value), alpha: 1)
         
+       
+        
+        view.backgroundColor = UIColor(
+            red: CGFloat(Int(redSlide.value * 5 )) / 5,
+            green: CGFloat(Int(greenSlide.value * 5 )) / 5,
+            blue: CGFloat(Int(blueSlide.value * 5 )) / 5,
+            alpha: 1)
+        
+        print(CGFloat(Int(redSlide.value * 5 )) / 5)
+        print(CGFloat(Int(greenSlide.value * 5 )) / 5)
+        print(CGFloat(Int(blueSlide.value * 5 )) / 5)
     }
     
     @IBOutlet weak var startGame: UIButton!
